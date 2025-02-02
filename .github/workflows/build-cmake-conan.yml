@@ -1,4 +1,4 @@
-name: reLCS conan+cmake
+name: reVC conan+cmake
 on:
   workflow_dispatch:
   pull_request:
@@ -55,10 +55,10 @@ jobs:
       - uses: actions/setup-python@v2
         with:
           python-version: '3.x'
-      - name: "Use XCode 11 as default (conan-center-index does not provide XCode 12 binaries at the moment)"
-        if: startsWith(matrix.os, 'macos')
-        run: |
-          sudo xcode-select --switch /Applications/Xcode_11.7.app
+      # - name: "Use XCode 11 as default (conan-center-index does not provide XCode 12 binaries at the moment)"
+      #   if: startsWith(matrix.os, 'macos')
+      #   run: |
+      #     sudo xcode-select --switch /Applications/Xcode_11.7.app
       - name: "Setup conan"
         run: |
           python -m pip install conan
